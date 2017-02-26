@@ -33,7 +33,7 @@ describe('AppComponent', () => {
   it(`should have a hero called 'Windstorm'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.hero).toEqual('Windstorm');
+    expect(app.hero.name).toEqual('Windstorm');
   }));
 
   it('should render the hero in a h2 tag', async(() => {
@@ -41,5 +41,12 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h2').textContent).toContain('Windstorm details!');
+  }));
+
+  it('should render the hero in an input field', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('input').value).toContain('Windstorm');
   }));
 });
